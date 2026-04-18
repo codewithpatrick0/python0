@@ -1,3 +1,4 @@
+
 #todo Python Reaprendizaje (Tipos de datos, Variables y Operadores)
 
 #¡Ejercicio 1

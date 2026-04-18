@@ -23,18 +23,25 @@ print(resultado)
 #Pide números al usuario hasta que ingrese 0. Al final imprime la suma total y el promedio.
 intentos = 0
 suma = 0
+
 while True :
     numero = int(input("Ingresa un número : "))
 
     if numero == 0 :
-       break
+        break
     elif numero < 0 :
         print("Número inválido, vuelve a intentar otro")
         continue
     else :
-         intentos += 1
-         suma += numero
+        intentos += 1
+        suma += numero
 
-print(f"La suma de los números ingresados es {suma} y el promedio es {suma/intentos}")       
+
+if suma == 0 or intentos == 0 : 
+    promedio = 0
+else:
+    promedio = suma / intentos
+
+print(f"La suma de los números ingresados es {suma} y el promedio es {promedio}")       
 
         
