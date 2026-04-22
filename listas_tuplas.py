@@ -25,3 +25,21 @@ for string in lista_strings :
         lista_strings_largos.append(string)
 
 print(lista_strings_largos)
+
+#¡Ejercicio 3
+#Crea una función que reciba dos listas y retorne los elementos que tienen en común.
+
+def retornar_lista_resultante(lista1, lista2):
+    lista_resultante = []
+
+    for i in min(len((lista1, lista2))):
+        if lista1[i] == lista2[i] :
+            lista_resultante.append(lista1[i])
+
+    return lista_resultante
+
+lista1 = [2, 5, 10, 12, 20]
+lista2 = [10, 2, 99, 20]
+
+resultado = retornar_lista_resultante(lista1, lista2)
+print(resultado)
