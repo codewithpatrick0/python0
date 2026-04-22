@@ -32,7 +32,7 @@ print(lista_strings_largos)
 def retornar_lista_resultante(lista1, lista2):
     lista_resultante = []
 
-    for i in min(len((lista1, lista2))):
+    for i in range(min(len((lista1, lista2)))):
         if lista1[i] == lista2[i] :
             lista_resultante.append(lista1[i])
 
