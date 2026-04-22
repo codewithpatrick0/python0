@@ -23,25 +23,49 @@ print(resultado)
 #Pide números al usuario hasta que ingrese 0. Al final imprime la suma total y el promedio.
 intentos = 0
 suma = 0
-
 while True :
     numero = int(input("Ingresa un número : "))
 
     if numero == 0 :
-        break
+       break
     elif numero < 0 :
         print("Número inválido, vuelve a intentar otro")
         continue
     else :
-        intentos += 1
-        suma += numero
+         intentos += 1
+         suma += numero
 
-
-if suma == 0 or intentos == 0 : 
+if intentos == 0 :
     promedio = 0
-else:
+else :
     promedio = suma / intentos
 
 print(f"La suma de los números ingresados es {suma} y el promedio es {promedio}")       
 
         
+#¡Ejercicio 4
+#Imprime la tabla de multiplicar de un número ingresado por el usuario.
+
+numero = int(input("Ingresa un número : "))
+for i in range(1, 13) :
+    resultado = numero * i
+    print(f"{i} x {numero} = {resultado}")
+
+#¡Ejercicio 5
+#Dado un string, cuenta cuántas vocales tiene sin usar .count().
+
+string = input("Ingresa un string : ")
+
+vocales = 0
+
+for letra in string :
+    if letra in "aeiou":
+        vocales +=1
+
+print(f"El string ingresado tiene {vocales} vocales")
+
+#¡Ejercicio 6
+#Imprime un triángulo de asteriscos de altura n. Ej con n = 4:
+n = int(input("Ingresa altura : "))
+for i in range(n+1) :
+    print("*" * i)
