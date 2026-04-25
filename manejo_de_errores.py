@@ -93,20 +93,23 @@ Combina todo — crea un programa que pida al usuario dos números y una operaci
  y use finally para imprimir "Operación finalizada" siempre.
 """
 
-def operaciones_numeros(numero1, numero2):
-    try:
-        if numero1 > 0 and numero2 > 0:
-            suma = numero1 + numero2
-            resta = numero1 - numero2
-            multiplicacion = numero1 * numero2
-            division = numero1 / numero2
+while True:
+    try :
+        numero1 = int(input("Ingresa un número"))
+        numero2 = int(input("Ingresa otro número"))
 
-    except ValueError :
-        print("Los números deben ser positivos")
-
-    except ZeroDivisionError:
-        print("No se puede dividir entre 0")
-
+        print(f"La suma de los números es {numero1 + numero2}")
+        print(f"La resta de los números es {numero1 - numero2}")
+        print(f"La multiplicación de los números es {numero1 * numero2}")
+        print(f"La división de los números es {numero1 / numero2}")
+        break
+    
+    except ValueError as e:
+        print(f"{e} : Solo puede ingresar números enteros")
+    except ZeroDivisionError as e :
+        print(f"{e} : No se puede dividir entre 0")
+    finally:
+            print("Operación finalizada...")
 
 
 
