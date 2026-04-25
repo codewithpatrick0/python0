@@ -97,6 +97,7 @@ while True:
     try :
         numero1 = int(input("Ingresa un número"))
         numero2 = int(input("Ingresa otro número"))
+        
 
         print(f"La suma de los números es {numero1 + numero2}")
         print(f"La resta de los números es {numero1 - numero2}")
