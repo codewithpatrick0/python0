@@ -17,7 +17,7 @@ class Persona :
         print(f"Mi nombre es {self.nombre}, mi edad es {self.edad} y soy de {self.ciudad}")
         
     def mayor_de_edad(self):
-        return self.edad > 18
+        return self.edad >= 18
     
 persona1 = Persona('Patrick', 19, 'Lima')
 
@@ -38,12 +38,12 @@ class Rectangulo :
         return self.ancho * self.alto
     
     def calcular_perimetro(self):
-        return 2 * (self.ancho * self.alto)
+        return 2 * (self.ancho + self.alto)
     
 rectangulo1 = Rectangulo(20, 12)
 
-print(rectangulo1.calcular_area())
-print(rectangulo1.calcular_perimetro())
+print(F"Área: {rectangulo1.calcular_area()}")
+print(f"Perímetro: {rectangulo1.calcular_perimetro()}")
 
 #¡Ejercicio 3
 """
@@ -66,6 +66,9 @@ class CuentaBancaria :
         if monto <= self.__saldo:
             self.__saldo -= monto
             print(f"El monto de S/{monto:,.2f} fue retirado correctamente | Nuevo saldo : S/{self.__saldo:,.2f}")
+            return 
+        print("No tienes saldo suficiente para retirar el monto indicado")
+        return
             
     def consultar_saldo(self):
         return f"S/{self.__saldo}"
@@ -116,3 +119,94 @@ estudiante1.set_notas(20)
 
 print(f"El promedio del estudiante es {estudiante1.calcular_promedio():,.2f}")
 print(f"¿Aprobó?: {estudiante1.aprobacion()}")
+
+#¡Ejercicio 5
+"""
+Crea una clase Producto con nombre, precio y stock. 
+Agrega métodos para aplicar descuento y vender unidades — con validaciones de stock.
+"""
+
+class Producto :
+    def __init__(self, nombre, precio, stock):
+        self.nombre = nombre
+        self.__precio = precio
+        self.__stock =  stock
+        
+    #Aplicaré un descuento del 20% a partir de la compra de un producto mayor a S/1000.00
+    def vender(self, unidades):
+        if unidades > self.__stock:
+            print("No hay stock suficiente del producto.")
+            return 
+        
+        self.__stock = self.__stock - unidades
+        print(f"Cantidad vendida: {unidades} unidad(es) | Nuevo stock: {self.__stock}")
+        
+    def aplicar_descuento(self):
+        if self.__precio > 1000 :
+            self.__precio = self.__precio - (0.2 * self.__precio)
+            return True
+        return False
+    
+    def obtener_precio(self):
+        return self.__precio
+    
+producto1 = Producto('Iphone 17', 1299.99, 20)
+producto2 = Producto('Mouse', 549.99, 10)
+
+#Aplicamos descuento para comprobar si tienen:
+print(f"¿{producto1.nombre} tiene descuento? {producto1.aplicar_descuento()} | Precio con descuento: S/{producto1.obtener_precio():,.2f}")
+print(f"¿{producto2.nombre} tiene descuento? {producto2.aplicar_descuento()} | Precio con descuento: S/{producto2.obtener_precio():,.2f}") #Es el mismo ya que no hay
+
+#Vender
+producto1.vender(21)
+producto2.vender(2)
+
+#¡Ejercicio 6
+"""
+Crea una clase Calculadora que guarde el historial de operaciones realizadas. 
+Implementa suma, resta, multiplicación y división, y un método para imprimir el historial completo.
+"""
+class Calculadora :
+    def __init__(self, historial=None):
+        if historial is None:
+            self.__historial = []
+            
+    def sumar(self, a, b):
+        resultado = a + b
+        self.__historial.append(f"{a} + {b} = {a+b}")
+        return resultado
+    
+    def restar(self, a, b):
+        resultado = a - b
+        self.__historial.append(f"{a} - {b} = {a-b}")
+        return resultado
+    
+    def multiplicar(self, a, b):
+        resultado = a * b
+        self.__historial.append(f"{a} x {b} = {a*b}")
+        return resultado
+    
+    def dividir(self, a, b):
+        if b == 0 :
+            print("No se puede dividir entre 0, prueba otro número")
+            return None
+        resultado = a / b
+        self.__historial.append(f"{a} / {b} = {a/b}")
+        return resultado
+    
+    def mostrar_historial(self):
+        if not self.__historial:
+            print("El historial se encuentra vacío")
+            return
+        for i, operacion in enumerate(self.__historial, start=1):
+            print(f"Operación {i}. {operacion}")
+            
+calculadora = Calculadora()
+
+calculadora.sumar(2, 3)
+calculadora.restar(10, 3)
+calculadora.multiplicar(2, 3)
+calculadora.dividir(10, 2)
+calculadora.dividir(5, 0)
+
+calculadora.mostrar_historial()
