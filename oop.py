@@ -19,11 +19,6 @@ class Persona :
     def mayor_de_edad(self):
         return self.edad >= 18
     
-persona1 = Persona('Patrick', 19, 'Lima')
-
-persona1.presentacion()
-print(persona1.mayor_de_edad())
-
 #¡Ejercicio 2
 """
 Crea una clase Rectangulo con ancho y alto. Agrega métodos para calcular área y perímetro.
@@ -39,11 +34,6 @@ class Rectangulo :
     
     def calcular_perimetro(self):
         return 2 * (self.ancho + self.alto)
-    
-rectangulo1 = Rectangulo(20, 12)
-
-print(F"Área: {rectangulo1.calcular_area()}")
-print(f"Perímetro: {rectangulo1.calcular_perimetro()}")
 
 #¡Ejercicio 3
 """
@@ -73,13 +63,6 @@ class CuentaBancaria :
     def consultar_saldo(self):
         return f"S/{self.__saldo}"
     
-cuenta1 = CuentaBancaria(1800.50)
-cuenta1.depositar(210.2)
-print(cuenta1.consultar_saldo())
-
-cuenta1.retirar(1550.7)
-print(cuenta1.consultar_saldo())
-
 #¡Ejercicio 4
 """
 Crea una clase Estudiante con nombre, notas como lista, y métodos para agregar nota,
@@ -111,15 +94,6 @@ class Estudiante :
         
         return False
 
-estudiante1 = Estudiante('Patrick')
-
-estudiante1.set_notas(13)
-estudiante1.set_notas(16)
-estudiante1.set_notas(20)
-
-print(f"El promedio del estudiante es {estudiante1.calcular_promedio():,.2f}")
-print(f"¿Aprobó?: {estudiante1.aprobacion()}")
-
 #¡Ejercicio 5
 """
 Crea una clase Producto con nombre, precio y stock. 
@@ -149,17 +123,6 @@ class Producto :
     
     def obtener_precio(self):
         return self.__precio
-    
-producto1 = Producto('Iphone 17', 1299.99, 20)
-producto2 = Producto('Mouse', 549.99, 10)
-
-#Aplicamos descuento para comprobar si tienen:
-print(f"¿{producto1.nombre} tiene descuento? {producto1.aplicar_descuento()} | Precio con descuento: S/{producto1.obtener_precio():,.2f}")
-print(f"¿{producto2.nombre} tiene descuento? {producto2.aplicar_descuento()} | Precio con descuento: S/{producto2.obtener_precio():,.2f}") #Es el mismo ya que no hay
-
-#Vender
-producto1.vender(21)
-producto2.vender(2)
 
 #¡Ejercicio 6
 """
@@ -200,13 +163,50 @@ class Calculadora :
             return
         for i, operacion in enumerate(self.__historial, start=1):
             print(f"Operación {i}. {operacion}")
-            
-calculadora = Calculadora()
 
-calculadora.sumar(2, 3)
-calculadora.restar(10, 3)
-calculadora.multiplicar(2, 3)
-calculadora.dividir(10, 2)
-calculadora.dividir(5, 0)
+if __name__ == "__main__":
+    persona1 = Persona('Patrick', 19, 'Lima')
+    persona1.presentacion()
+    print(persona1.mayor_de_edad())
+    
+    rectangulo1 = Rectangulo(20, 12)
 
-calculadora.mostrar_historial()
+    print(F"Área: {rectangulo1.calcular_area()}")
+    print(f"Perímetro: {rectangulo1.calcular_perimetro()}")
+    
+    cuenta1 = CuentaBancaria(1800.50)
+    cuenta1.depositar(210.2)
+    print(cuenta1.consultar_saldo())
+
+    cuenta1.retirar(1550.7)
+    print(cuenta1.consultar_saldo())
+
+    estudiante1 = Estudiante('Patrick')
+
+    estudiante1.set_notas(13)
+    estudiante1.set_notas(16)
+    estudiante1.set_notas(20)
+
+    print(f"El promedio del estudiante es {estudiante1.calcular_promedio():,.2f}")
+    print(f"¿Aprobó?: {estudiante1.aprobacion()}")
+    
+    producto1 = Producto('Iphone 17', 1299.99, 20)
+    producto2 = Producto('Mouse', 549.99, 10)
+
+    #Aplicamos descuento para comprobar si tienen:
+    print(f"¿{producto1.nombre} tiene descuento? {producto1.aplicar_descuento()} | Precio con descuento: S/{producto1.obtener_precio():,.2f}")
+    print(f"¿{producto2.nombre} tiene descuento? {producto2.aplicar_descuento()} | Precio con descuento: S/{producto2.obtener_precio():,.2f}") #Es el mismo ya que no hay
+
+    #Vender
+    producto1.vender(21)
+    producto2.vender(2)
+    
+    calculadora = Calculadora()
+
+    calculadora.sumar(2, 3)
+    calculadora.restar(10, 3)
+    calculadora.multiplicar(2, 3)
+    calculadora.dividir(10, 2)
+    calculadora.dividir(5, 0)
+
+    calculadora.mostrar_historial()
