@@ -45,6 +45,16 @@ class CuentaBancaria :
     def __init__(self, saldo):
         self.__saldo = saldo
     
+    def get_saldo(self):
+        return self.__saldo
+    
+    def set_saldo(self, valor):
+        if valor >= 0:
+            self.__saldo = valor
+            return self.__saldo
+        else:
+            raise ValueError("El saldo no puede ser negativo")
+        
     def depositar(self, monto):
         if monto > 0 :
             self.__saldo += monto

@@ -166,3 +166,46 @@ empleado1 =  Empleado('Fabián', 22, 'Miraflores', 800, 'almacenero')
 
 empleado1.presentacion()
 
+#¡Ejercicio 5
+"""
+Crea una clase CuentaAhorros y CuentaCorriente que hereden de CuentaBancaria del tema anterior.
+Cada una tiene reglas diferentes para retirar — 
+ahorros no permite quedar en negativo, corriente permite hasta -500 de sobregiro.
+"""
+
+from oop import CuentaBancaria
+
+class CuentaAhorros(CuentaBancaria):
+    pass
+    
+class CuentaCorriente(CuentaBancaria):
+    def __init__ (self, saldo, sobregiro):
+        super().__init__(saldo)
+        self.__sobregiro = sobregiro
+        
+    def retirar(self, monto):
+        saldo_actual = self.get_saldo()
+        if (saldo_actual - monto) >= self.__sobregiro :
+            nuevo_saldo = saldo_actual - monto
+            
+            print(f"Retiro exitoso | Nuevo saldo: S/{nuevo_saldo:,.2f}")
+            return
+        print("El monto que deseas retirar excede el límite del sobregiro permitido")
+        return
+    
+print('\n')
+
+cuenta_ahorros = CuentaAhorros(2099.99)
+cuenta_corriente = CuentaCorriente(3000, -500)
+
+cuenta_corriente.retirar(3500.99)
+
+#¡Ejercicio 6
+"""
+Crea un sistema con clases Forma, Cuadrado, Circulo y Triangulo. 
+Implementa un método descripcion() en cada una y una función externa
+que reciba cualquier forma e imprima su descripción — demuestra polimorfismo real.
+"""
+
+
+
