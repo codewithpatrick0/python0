@@ -207,5 +207,50 @@ Implementa un método descripcion() en cada una y una función externa
 que reciba cualquier forma e imprima su descripción — demuestra polimorfismo real.
 """
 
+class Forma:
+    def __init__(self, nombre, area):
+        self.nombre = nombre
+        self.area = area
+        
+    def descripcion(self):
+        print(f"Nombre de la figura: {self.nombre}")
+        print(f"Área: {self.area}")
+        
+class Cuadrado(Forma):
+    def __init__(self, nombre, area, lados):
+        super().__init__(nombre, area)
+        self.lados = lados
+        
+    def descripcion(self):
+        super().descripcion()
+        print(f"Número de lados: {self.lados}\n")
+        
+class Triangulo(Forma):
+    def __init__(self, nombre, area, lados):
+        super().__init__(nombre, area)
+        self.lados = lados
+        
+    def descripcion(self):
+        super().descripcion()
+        print(f"Número de lados: {self.lados}\n")
+        
+class Circulo(Forma):
+    def __init__(self, nombre, area, radio):
+        super().__init__(nombre, area)
+        self.radio = radio
+        
+    def descripcion(self):
+        super().descripcion()
+        print(f"Radio: {self.radio}\n")
+        
+triangulo = Triangulo('triangulo', '(Base x Altura) / 2', 3)
+cuadrado = Cuadrado('Cuadrado', 'Lado al cuadrado', 4)
+circulo = Circulo('Círculo', 'pi x (radio al cuadrado)', 50)
 
+def obtener_descripcion(forma):
+    return forma.descripcion()
 
+formas = [triangulo, circulo, cuadrado]
+
+for f in formas :
+    obtener_descripcion(f)
